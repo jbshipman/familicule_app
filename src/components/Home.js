@@ -27,6 +27,7 @@ export default class Home extends Component {
       .catch((error) => {
         console.log("logout error", error);
       });
+    this.props.history.push("/");
   }
 
   render() {
