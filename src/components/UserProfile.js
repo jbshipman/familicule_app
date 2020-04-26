@@ -1,16 +1,37 @@
-import React from "react";
+import React, { Component } from "react";
+import axios from "axios";
+
 import { Header } from "semantic-ui-react";
 
-const UserProfile = () => {
-  return (
-    <div>
-      <div>
-        <Header as="h1">Profile</Header>
-        <div>User information displayed below</div>
-        <button>Edit Profile</button>
-      </div>
-    </div>
-  );
-};
+export default class UserProfile extends Component {
+  constructor(props) {
+    super(props);
 
-export default UserProfile;
+    this.handleSuccessfulLogOut = this.handleSuccessfulLogOut.bind(this);
+  }
+
+  handleSuccessfulLogOut(data) {
+    this.props.handleLogout(data);
+    this.props.history.push("/");
+  }
+
+  render() {
+    return (
+      <div>
+        <div>
+          <Header as="h1">Hello</Header>
+          <div>User information displayed below</div>
+          <button>Edit Profile</button>
+          <br />
+          <br />
+          <br />
+          <br />
+          <button onClick={() => this.handleSuccessfulLogOut()}>Logout</button>
+          <h6>
+            Status: {this.props.loggedInStatus}, as {this.props.user.username}
+          </h6>
+        </div>
+      </div>
+    );
+  }
+}
