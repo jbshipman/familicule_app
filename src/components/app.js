@@ -4,6 +4,8 @@ import Home from "./Home";
 import UserProfile from "./UserProfile";
 import axios from "axios";
 
+const prodURL = "https://familicule-api.herokuapp.com/";
+
 export default class App extends Component {
   constructor() {
     super();
@@ -19,7 +21,7 @@ export default class App extends Component {
 
   checkLoginStatus() {
     axios
-      .get("http://localhost:3001/logged_in", { withCredentials: true })
+      .get(`${prodURL}logged_in`, { withCredentials: true })
       .then((resp) => {
         if (
           resp.data.logged_in &&
@@ -76,6 +78,7 @@ export default class App extends Component {
                   handleLogin={this.handleLogin}
                   handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus}
+                  prodURL={this.prodURL}
                 />
               )}
             />
@@ -88,6 +91,7 @@ export default class App extends Component {
                   user={this.state.user}
                   loggedInStatus={this.state.loggedInStatus}
                   handleLogout={this.handleLogout}
+                  prodURL={this.prodURL}
                 />
               )}
             />

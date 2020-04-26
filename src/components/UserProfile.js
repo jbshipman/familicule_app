@@ -12,7 +12,7 @@ export default class UserProfile extends Component {
 
   handleLogoutClick() {
     axios
-      .delete("http://localhost:3001/logout", { withCredentials: true })
+      .delete(`${prodURL}logout`, { withCredentials: true })
       .then((resp) => {
         this.props.handleLogout();
       })
@@ -28,7 +28,6 @@ export default class UserProfile extends Component {
         <div>
           <Header as="h1">Hello {this.props.user.username}</Header>
           <div>{this.props.user.email}</div>
-          {/* <button>Edit Profile</button> */}
           <br />
           <br />
           <br />

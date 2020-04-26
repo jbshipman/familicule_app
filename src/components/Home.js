@@ -20,7 +20,7 @@ export default class Home extends Component {
 
   handleLogoutClick() {
     axios
-      .delete("http://localhost:3001/logout", { withCredentials: true })
+      .delete(`${this.props.prodURL}logout`, { withCredentials: true })
       .then((resp) => {
         this.props.handleLogout();
       })
@@ -37,8 +37,14 @@ export default class Home extends Component {
         <div>Please Register or Login</div>
         <br />
         <br />
-        <Registration handleSuccessfullAuth={this.handleSuccessfullAuth} />
-        <Login handleSuccessfullAuth={this.handleSuccessfullAuth} />
+        <Registration
+          handleSuccessfullAuth={this.handleSuccessfullAuth}
+          prodURL={this.props.prodURL}
+        />
+        <Login
+          handleSuccessfullAuth={this.handleSuccessfullAuth}
+          prodURL={this.props.prodURL}
+        />
         <br />
         <br />
         <br />
