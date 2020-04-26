@@ -1,13 +1,18 @@
 import React, { Component } from "react";
-import "semantic-ui-css/semantic.min.css";
-import { Header } from "semantic-ui-react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from "./Home";
+import UserProfile from "./UserProfile";
 
 export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <Header as="h1">DevCamp React Starter</Header>
-        <Header as="h2">React Redux Router</Header>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path={"/"} component={Home} />
+            <Route exact path={"/profile"} component={UserProfile} />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }
