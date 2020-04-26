@@ -33,8 +33,8 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <h1>HOME</h1>
-        <button onClick={() => this.handleLogoutClick()}>Logout</button>
+        <h1>Familicules</h1>
+        <div>Please Register or Login</div>
         <br />
         <br />
         <Registration handleSuccessfullAuth={this.handleSuccessfullAuth} />
@@ -43,6 +43,7 @@ export default class Home extends Component {
         <br />
         <br />
         <br />
+        <button onClick={() => this.handleLogoutClick()}>Logout</button>
         <h6>
           Status: {this.props.loggedInStatus} {""}
           {this.props.user.username ? this.props.user.username : ""}
