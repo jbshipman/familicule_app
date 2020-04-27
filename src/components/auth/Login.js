@@ -25,7 +25,7 @@ export default class Login extends Component {
 
     axios
       .post(
-        `${this.props.prodURL}sessions`,
+        "http://localhost:3001/sessions",
         {
           user: {
             username: username,

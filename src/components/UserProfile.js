@@ -12,7 +12,8 @@ export default class UserProfile extends Component {
 
   handleLogoutClick() {
     axios
-      .delete(`${prodURL}logout`, { withCredentials: true })
+      .delete("https://localhost:3001/logout", { withCredentials: true })
+
       .then((resp) => {
         this.props.handleLogout();
       })
