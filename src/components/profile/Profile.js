@@ -59,12 +59,11 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
-        {/* Profile data will display here. */}
         <div>{this.props.profile.first_name}</div>
         <div>{this.props.profile.last_name}</div>
         <div>{this.props.profile.bio}</div>
         <div>{this.props.profile.birthday}</div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <button type="submit">Update Profile </button>
         </form>
       </div>

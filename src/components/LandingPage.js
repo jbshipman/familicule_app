@@ -46,10 +46,6 @@ export default class Home extends Component {
           handleSuccessfullAuth={this.handleSuccessfullAuth}
           // prodURL={this.props.prodURL}
         />
-        <br />
-        <br />
-        <br />
-        <br />
         <button onClick={() => this.handleLogoutClick()}>Logout</button>
         <h6>
           Status: {this.props.loggedInStatus} {""}

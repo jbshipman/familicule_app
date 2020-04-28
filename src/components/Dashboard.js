@@ -33,31 +33,12 @@ export default class UserProfile extends Component {
         <div>
           <h1>Hello {this.props.profile.first_name}</h1>
           <div>{this.props.user.email}</div>
-          <Profile user={this.props.user} profile={this.props.profile} />
-          {/* <UpdateProfile /> */}
-          {/* <BrowserRouter>
-            <Switch>
-              <Route
-                exact
-                path={"/dashboard/profile"}
-                render={(props) => <Profile />}
-              />
-              <Route
-                exact
-                path={"/dashboard/updateprofile"}
-                render={(props) => <UpdateProfile />}
-              />
-            </Switch>
-          </BrowserRouter> */}
-          {/* <UpdateProfile /> */}
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+          <Profile
+            user={this.props.user}
+            profile={this.props.profile}
+            handleSubmit={this.handleSubmit}
+          />
+
           <button onClick={() => this.handleLogoutClick()}>Logout</button>
           <h6>
             Status: {this.props.loggedInStatus}, as {this.props.user.username}

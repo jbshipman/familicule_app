@@ -25,14 +25,7 @@ export default class Login extends Component {
   }
 
   handleSubmit(event) {
-    const {
-      username,
-      password,
-      // first_name,
-      // last_name,
-      // bio,
-      // birthday,
-    } = this.state;
+    const { username, password } = this.state;
 
     axios
       .post(
@@ -42,12 +35,6 @@ export default class Login extends Component {
             username: username,
             password: password,
           },
-          // profile: {
-          //   first_name: first_name,
-          //   last_name: last_name,
-          //   bio: bio,
-          //   birthday: birthday,
-          // },
         },
         { withCredentials: true }
       )
@@ -60,8 +47,6 @@ export default class Login extends Component {
       })
       .catch((error) => {
         console.log("login error", error);
-        // alert("Please create an account.");
-        // this.props.history.push("/");
       });
     event.preventDefault();
   }
