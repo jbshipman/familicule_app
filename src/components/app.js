@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./Home";
-import UserProfile from "./UserProfile";
+import LandingPage from "./LandingPage";
+import Dashboard from "./Dashboard";
 import axios from "axios";
 
 // const prodURL = "https://familicule-api.herokuapp.com/";
@@ -13,6 +13,7 @@ export default class App extends Component {
     this.state = {
       loggedInStatus: "NOT_LOGGED_IN",
       user: {},
+      profile: {},
     };
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -30,6 +31,7 @@ export default class App extends Component {
           this.setState({
             loggedInStatus: "LOGGED_IN",
             user: resp.data.user,
+            profile: resp.data.profile,
           });
         } else if (
           !resp.data.logged_in &&
@@ -38,6 +40,7 @@ export default class App extends Component {
           this.setState({
             loggedInStatus: "NOT_LOGGED_IN",
             user: {},
+            profile: {},
           });
       })
       .catch((error) => {
@@ -53,6 +56,7 @@ export default class App extends Component {
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN",
       user: {},
+      profile: {},
     });
   }
 
@@ -60,6 +64,7 @@ export default class App extends Component {
     this.setState({
       loggedInStatus: "LOGGED_IN",
       user: data.user,
+      profile: data.profile,
     });
   }
 
@@ -72,9 +77,10 @@ export default class App extends Component {
               exact
               path={"/"}
               render={(props) => (
-                <Home
+                <LandingPage
                   {...props}
                   user={this.state.user}
+                  profile={this.state.profile}
                   handleLogin={this.handleLogin}
                   handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus}
@@ -84,11 +90,12 @@ export default class App extends Component {
             />
             <Route
               exact
-              path={"/profile"}
+              path={"/dashboard"}
               render={(props) => (
-                <UserProfile
+                <Dashboard
                   {...props}
                   user={this.state.user}
+                  profile={this.state.profile}
                   loggedInStatus={this.state.loggedInStatus}
                   handleLogout={this.handleLogout}
                   // prodURL={this.prodURL}
