@@ -4,8 +4,6 @@ import LandingPage from "./LandingPage";
 import Dashboard from "./Dashboard";
 import axios from "axios";
 
-// const prodURL = "https://familicule-api.herokuapp.com/";
-
 export default class App extends Component {
   constructor() {
     super();

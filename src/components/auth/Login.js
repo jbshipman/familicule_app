@@ -9,7 +9,7 @@ export default class Login extends Component {
       username: "",
       password: "",
       first_name: "",
-      lastt_name: "",
+      last_name: "",
       bio: "",
       birthday: "",
       loginErrors: "",
