@@ -38,14 +38,8 @@ export default class Home extends Component {
         <div>Please Register or Login</div>
         <br />
         <br />
-        <Registration
-          handleSuccessfullAuth={this.handleSuccessfullAuth}
-          // prodURL={this.props.prodURL}
-        />
-        <Login
-          handleSuccessfullAuth={this.handleSuccessfullAuth}
-          // prodURL={this.props.prodURL}
-        />
+        <Registration handleSuccessfullAuth={this.handleSuccessfullAuth} />
+        <Login handleSuccessfullAuth={this.handleSuccessfullAuth} />
         <button onClick={() => this.handleLogoutClick()}>Logout</button>
         <h6>
           Status: {this.props.loggedInStatus} {""}
