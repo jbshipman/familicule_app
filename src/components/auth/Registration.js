@@ -27,7 +27,7 @@ export default class Registration extends Component {
 
     axios
       .post(
-        `${this.props.prodURL}registrations`,
+        "http://localhost:3001/registrations",
         {
           user: {
             username: username,

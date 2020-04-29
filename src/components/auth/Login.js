@@ -8,6 +8,10 @@ export default class Login extends Component {
     this.state = {
       username: "",
       password: "",
+      first_name: "",
+      last_name: "",
+      bio: "",
+      birthday: "",
       loginErrors: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +29,7 @@ export default class Login extends Component {
 
     axios
       .post(
-        `${this.props.prodURL}sessions`,
+        "http://localhost:3001/sessions",
         {
           user: {
             username: username,
@@ -37,6 +41,7 @@ export default class Login extends Component {
       .then((resp) => {
         // console.log('resp from login', resp)
         if (resp.data.logged_in) {
+          console.log(resp.data);
           this.props.handleSuccessfullAuth(resp.data);
         }
       })

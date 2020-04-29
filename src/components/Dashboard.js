@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+import Profile from "./profile/Profile";
+import UpdateProfile from "./profile/UpdateProfile";
+
 import axios from "axios";
 
 import { Header } from "semantic-ui-react";
+import { BrowserRouter, Switch } from "react-router-dom";
 
 export default class UserProfile extends Component {
   constructor(props) {
@@ -12,7 +16,8 @@ export default class UserProfile extends Component {
 
   handleLogoutClick() {
     axios
-      .delete(`${prodURL}logout`, { withCredentials: true })
+      .delete("http://localhost:3001/logout", { withCredentials: true })
+
       .then((resp) => {
         this.props.handleLogout();
       })
@@ -21,17 +26,19 @@ export default class UserProfile extends Component {
       });
     this.props.history.push("/");
   }
-
+  // all components for the entire app live at this level
   render() {
     return (
       <div>
         <div>
-          <Header as="h1">Hello {this.props.user.username}</Header>
+          <h1>Hello {this.props.profile.first_name}</h1>
           <div>{this.props.user.email}</div>
-          <br />
-          <br />
-          <br />
-          <br />
+          <Profile
+            user={this.props.user}
+            profile={this.props.profile}
+            handleSubmit={this.handleSubmit}
+          />
+
           <button onClick={() => this.handleLogoutClick()}>Logout</button>
           <h6>
             Status: {this.props.loggedInStatus}, as {this.props.user.username}

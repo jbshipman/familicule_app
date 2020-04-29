@@ -15,12 +15,13 @@ export default class Home extends Component {
 
   handleSuccessfullAuth(data) {
     this.props.handleLogin(data);
-    this.props.history.push("/profile");
+    this.props.history.push("/dashboard");
   }
 
   handleLogoutClick() {
     axios
-      .delete(`${this.props.prodURL}logout`, { withCredentials: true })
+      .delete("http://localhost:3001/logout", { withCredentials: true })
+
       .then((resp) => {
         this.props.handleLogout();
       })
@@ -39,16 +40,12 @@ export default class Home extends Component {
         <br />
         <Registration
           handleSuccessfullAuth={this.handleSuccessfullAuth}
-          prodURL={this.props.prodURL}
+          // prodURL={this.props.prodURL}
         />
         <Login
           handleSuccessfullAuth={this.handleSuccessfullAuth}
-          prodURL={this.props.prodURL}
+          // prodURL={this.props.prodURL}
         />
-        <br />
-        <br />
-        <br />
-        <br />
         <button onClick={() => this.handleLogoutClick()}>Logout</button>
         <h6>
           Status: {this.props.loggedInStatus} {""}
