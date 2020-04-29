@@ -82,7 +82,6 @@ export default class App extends Component {
                   handleLogin={this.handleLogin}
                   handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus}
-                  // prodURL={this.prodURL}
                 />
               )}
             />
@@ -96,7 +95,6 @@ export default class App extends Component {
                   profile={this.state.profile}
                   loggedInStatus={this.state.loggedInStatus}
                   handleLogout={this.handleLogout}
-                  // prodURL={this.prodURL}
                 />
               )}
             />
