@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Profile from "./profile/Profile";
 import UpdateProfile from "./profile/UpdateProfile";
+// import Cule from "./Cule";
 
 import axios from "axios";
 
 import { Header } from "semantic-ui-react";
 import { BrowserRouter, Switch } from "react-router-dom";
 
-export default class UserProfile extends Component {
+export default class Dashboard extends Component {
   constructor(props) {
     super(props);
 
@@ -17,6 +18,7 @@ export default class UserProfile extends Component {
 
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
     this.handleShowUpdateProfile = this.handleShowUpdateProfile.bind(this);
+    this.showCules = this.showCules.bind(this);
   }
 
   handleLogoutClick() {
@@ -37,6 +39,14 @@ export default class UserProfile extends Component {
     this.setState({ revealThings: !this.state.revealThings });
     // e.preventDefault();
   }
+
+  showCules() {
+    let cules = this.props.cule;
+    return cules.map((c) => {
+      return <p>{c.name}</p>;
+    });
+  }
+
   // all components for the entire app live at this level
   render() {
     return (
@@ -44,6 +54,7 @@ export default class UserProfile extends Component {
         <div>
           <h1>Hello {this.props.profile.firstname}</h1>
           <div>{this.props.user.email}</div>
+          <button>Create a Cule</button>
           <Profile
             user={this.props.user}
             profile={this.props.profile}
@@ -59,6 +70,14 @@ export default class UserProfile extends Component {
               handleShowUpdateProfile={this.handleShowUpdateProfile}
             />
           ) : null}
+          <div>
+            Your 'cules:
+            {console.log(this.props.cule)}
+            {this.showCules()}
+            {/* {this.props.cule.map((c) => {
+              <p>{c.name}</p>;
+            })} */}
+          </div>
           <button onClick={() => this.handleShowUpdateProfile()}>
             Update Profile
           </button>

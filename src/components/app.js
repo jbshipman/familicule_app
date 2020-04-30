@@ -12,16 +12,19 @@ export default class App extends Component {
       loggedInStatus: "NOT_LOGGED_IN",
       user: {},
       profile: {},
+      cule: [],
     };
 
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    // this.getUserCules = this.getUserCules.bind(this);
   }
 
   checkLoginStatus() {
     axios
       .get("http://localhost:3001/logged_in", { withCredentials: true })
       .then((resp) => {
+        // console.log(resp);
         if (
           resp.data.logged_in &&
           this.state.loggedInStatus === "NOT_LOGGED_IN"
@@ -30,6 +33,7 @@ export default class App extends Component {
             loggedInStatus: "LOGGED_IN",
             user: resp.data.user,
             profile: resp.data.profile,
+            cule: resp.data.cule,
           });
         } else if (
           !resp.data.logged_in &&
@@ -39,6 +43,7 @@ export default class App extends Component {
             loggedInStatus: "NOT_LOGGED_IN",
             user: {},
             profile: {},
+            cule: [],
           });
       })
       .catch((error) => {
@@ -46,8 +51,15 @@ export default class App extends Component {
       });
   }
 
+  // getUserCules() {
+  //   axios
+  //     .get("http://localhost:3001/user_cule", { withCredentials: true })
+  //     .then((resp) => console.log("got the user_cules", resp));
+  // }
+
   componentDidMount() {
     this.checkLoginStatus();
+    // this.getUserCules();
   }
 
   handleLogout() {
@@ -55,6 +67,7 @@ export default class App extends Component {
       loggedInStatus: "NOT_LOGGED_IN",
       user: {},
       profile: {},
+      cule: [],
     });
   }
 
@@ -63,6 +76,7 @@ export default class App extends Component {
       loggedInStatus: "LOGGED_IN",
       user: data.user,
       profile: data.profile,
+      cule: data.cule,
     });
   }
 
@@ -93,6 +107,7 @@ export default class App extends Component {
                   {...props}
                   user={this.state.user}
                   profile={this.state.profile}
+                  cule={this.state.cule}
                   loggedInStatus={this.state.loggedInStatus}
                   handleLogout={this.handleLogout}
                 />
