@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Profile from "./profile/Profile";
 import UpdateProfile from "./profile/UpdateProfile";
-// import Cule from "./Cule";
+import Cule from "./Cule";
 
 import axios from "axios";
 
@@ -42,9 +42,7 @@ export default class Dashboard extends Component {
 
   showCules() {
     let cules = this.props.cule;
-    return cules.map((c) => {
-      return <p>{c.name}</p>;
-    });
+    return cules.map((c, idx) => <Cule cule={c} key={idx} />);
   }
 
   // all components for the entire app live at this level
