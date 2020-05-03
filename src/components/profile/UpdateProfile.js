@@ -24,15 +24,10 @@ export default class ProfileUpdate extends Component {
   }
 
   handleSubmit(event) {
-    // console.log(e.target.value);
-    // const { firstname, lastname, bio, birthday } = this.setState;
-    // const uId = this.props.user.id;
     const pId = this.props.profile.id;
-    // console.log(this.state);
 
     axios
       .patch(
-        // "http://localhost:3001/profiles",
         `http://localhost:3001/profiles/${pId}`,
         {
           profile: {
@@ -50,14 +45,12 @@ export default class ProfileUpdate extends Component {
         if (resp.data.status === "updated") {
           console.log("profile has been updated", resp.data.profile);
           this.props.handleShowUpdateProfile();
-          // this.props.handleSuccessfullAuth(resp.data);
         }
       })
       .catch((error) => {
         console.log("update error", error);
-        // alert("update error", error);
       });
-
+    // allow for the refresh so as to view the new profile data
     // event.preventDefault();
   }
 

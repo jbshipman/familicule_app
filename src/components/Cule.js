@@ -2,6 +2,12 @@ import React, { Component } from "react";
 
 export default class Cule extends Component {
   render() {
-    return <div>{this.props.cule.name}</div>;
+    return (
+      <div>
+        <h3>{this.props.cule.name}</h3>
+        <p>Holds all additional components: Events, Tasks, Messages, etc.</p>
+        <div></div>
+      </div>
+    );
   }
 }
