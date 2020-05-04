@@ -53,7 +53,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="login-form">
         <form onSubmit={this.handleSubmit}>
           <input
             type="username"
