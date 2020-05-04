@@ -13,6 +13,7 @@ export default class App extends Component {
       user: {},
       profile: {},
       cule: [],
+      events: [],
     };
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -34,6 +35,7 @@ export default class App extends Component {
             user: resp.data.user,
             profile: resp.data.profile,
             cule: resp.data.cule,
+            events: resp.data.events,
           });
         } else if (
           !resp.data.logged_in &&
@@ -44,6 +46,7 @@ export default class App extends Component {
             user: {},
             profile: {},
             cule: [],
+            events: [],
           });
       })
       .catch((error) => {
@@ -68,6 +71,7 @@ export default class App extends Component {
       user: {},
       profile: {},
       cule: [],
+      events: [],
     });
   }
 
@@ -77,6 +81,7 @@ export default class App extends Component {
       user: data.user,
       profile: data.profile,
       cule: data.cule,
+      events: data.events,
     });
   }
 
@@ -108,6 +113,7 @@ export default class App extends Component {
                   user={this.state.user}
                   profile={this.state.profile}
                   cule={this.state.cule}
+                  events={this.state.events}
                   loggedInStatus={this.state.loggedInStatus}
                   handleLogout={this.handleLogout}
                 />
