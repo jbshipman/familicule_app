@@ -9,6 +9,7 @@ export default class Event extends Component {
     };
 
     this.showEventCards = this.showEventCards.bind(this);
+    // this.timeWarp = this.timeWarp.bind(this);
   }
 
   componentDidMount() {
@@ -20,6 +21,10 @@ export default class Event extends Component {
     this.showEventCards();
   }
 
+  // timeWarp(data) {
+  //   const myRegex = /^(?:\S{11})(\S{8})/gm;
+  //   const timeMatch = myRegex.exec(data);
+  // }
   showEventCards() {
     // this.setState({
     //   currentEvents: this.props.events.filter(
@@ -28,13 +33,35 @@ export default class Event extends Component {
     // });
 
     return this.state.curentEvents.map((evt) => (
-      <div>
-        <h5>{evt.title}</h5>
-        <p>
-          {evt.date} at {evt.time}
-        </p>
-        <p>Location: {evt.location}</p>
-        <p>Details: {evt.details}</p>
+      // let dt = evt.time;
+      // let myRegex = /^(?:\S{11})(\S{8})/gm;
+      // let timeMatch = myRegex.exec(dt);
+
+      <div className="ui card">
+        <div className="content">
+          <h4 className="header">{evt.title}</h4>
+        </div>
+        <div className="content">
+          <div className="ui sub header">
+            {evt.date} at {evt.time}
+          </div>
+          <div className="ui small feed">
+            <div className="event">
+              <div className="content">
+                <div className="summary">
+                  <p>Location: {evt.location}</p>
+                </div>
+              </div>
+            </div>
+            <div className="event">
+              <div className="content">
+                <div className="sumamry">
+                  <p>Details: {evt.details}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     ));
   }
@@ -42,7 +69,9 @@ export default class Event extends Component {
   render() {
     return (
       <div>
-        <h4>What's happening in our Cule:</h4>
+        <div>
+          <h4>What's happening in our Cule:</h4>
+        </div>
         <div>
           <div className="event_cards">{this.showEventCards()}</div>
         </div>

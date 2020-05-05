@@ -18,6 +18,7 @@ export default class Dashboard extends Component {
       revealCreateCule: false,
       showSelfCule: true,
       showOtherCule: false,
+      displayProfile: true,
     };
 
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
@@ -37,6 +38,12 @@ export default class Dashboard extends Component {
         console.log("logout error", error);
       });
     this.props.history.push("/");
+  }
+
+  handleHideProfile() {
+    this.setState({
+      displayProfile: !this.state.displayProfile,
+    });
   }
 
   handleShowUpdateProfile() {
@@ -60,7 +67,12 @@ export default class Dashboard extends Component {
       return cules.map((c, idx) => (
         <div>
           <div>
-            <Link to={`${path}/${c.name}`} key={idx}>
+            <Link
+              // handleHideProfile={this.handleHideProfile}
+              // onClick={this.handleHideProfile}
+              to={`${path}/${c.name}`}
+              key={idx}
+            >
               {c.name}
             </Link>
           </div>
@@ -129,7 +141,9 @@ export default class Dashboard extends Component {
             </Grid.Column>
             <Grid.Column width={12} className="need-margin">
               <div>
-                {this.state.showSelfCule && !this.state.showOtherCule ? (
+                {this.state.showSelfCule &&
+                !this.state.showOtherCule &&
+                this.state.displayProfile ? (
                   <div id="profile_group" className="">
                     {!this.state.revealUpdateProfile ? (
                       <Profile

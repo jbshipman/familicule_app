@@ -2,22 +2,6 @@ import React, { Component } from "react";
 import { Link, Switch, Route } from "react-router-dom";
 
 export default class CuleList extends Component {
-  // personalCuleNameDisplay = () => {
-  //   if (this.props.cule.name === this.props.user.username) {
-  //     return (
-  //       <Link exact path={"/dashboard"}>
-  //         Home
-  //       </Link>
-  //     );
-  //   } else {
-  //     return (
-  //       <Link exact path={"/cule"}>
-  //         {this.props.cule.name}
-  //       </Link>
-  //     );
-  //   }
-  // };
-
   render() {
     return (
       <div>

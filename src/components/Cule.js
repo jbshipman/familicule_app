@@ -29,7 +29,7 @@ export default class Cule extends Component {
 
   render() {
     return (
-      <div>
+      <div className="cule-margin">
         <h3>{this.props.cule.name}</h3>
 
         <div>
