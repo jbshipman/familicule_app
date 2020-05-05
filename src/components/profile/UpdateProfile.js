@@ -88,7 +88,7 @@ export default class ProfileUpdate extends Component {
                 <label>Birthday</label>
               </p>
               <input
-                type="text"
+                type="date"
                 name="birthday"
                 placeholder="yyyy-mm-dd"
                 value={this.state.birthday}

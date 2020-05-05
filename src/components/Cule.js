@@ -31,6 +31,7 @@ export default class Cule extends Component {
     return (
       <div>
         <h3>{this.props.cule.name}</h3>
+
         <div>
           <Event
             user={this.props.user}
@@ -39,6 +40,7 @@ export default class Cule extends Component {
             events={this.props.events}
             handleShowCreateEvent={this.handleShowCreateEvent}
           />
+
           {this.state.revealCrateEvent ? (
             <CreateEvent
               user={this.props.user}
@@ -48,6 +50,7 @@ export default class Cule extends Component {
             />
           ) : null}
         </div>
+
         <button onClick={() => this.handleShowCreateEvent()}>
           {this.state.revealCrateEvent ? "Don't Create" : "Create"} Event
         </button>

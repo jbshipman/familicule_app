@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import Dashboard from "./Dashboard";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class App extends Component {
   constructor() {

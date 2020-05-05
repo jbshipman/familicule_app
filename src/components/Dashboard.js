@@ -7,6 +7,7 @@ import CreateCule from "./CreateCule";
 import Cule from "./Cule";
 import SelfCule from "./SelfCule";
 import { Link, Switch, Route, BrowserRouter } from "react-router-dom";
+import { Grid } from "semantic-ui-react";
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -90,63 +91,78 @@ export default class Dashboard extends Component {
   render() {
     const { path } = this.props.match;
     return (
-      <div>
-        <div>
-          <h1>Hello {this.props.profile.firstname}</h1>
-          <div>{this.props.user.email}</div>
+      <div className="container-style">
+        <Grid columns={2} divided className="small-push">
+          <Grid.Row>
+            <Grid.Column width={4}>
+              <div className="">
+                <h3>Hello</h3>
+                <div>{this.props.user.email}</div>
+              </div>
+              <div className="">
+                <div id="cule_select_group">
+                  <h6>Your 'cules:</h6>
+                  <BrowserRouter>{this.showCules()}</BrowserRouter>
 
-          {this.state.showSelfCule && !this.state.showOtherCule ? (
-            <div id="profile_group">
-              {!this.state.revealUpdateProfile ? (
-                <Profile
-                  user={this.props.user}
-                  profile={this.props.profile}
-                  loggedInStatus={this.props.loggedInStatus}
-                  handleShowUpdateProfile={this.handleShowUpdateProfile}
-                />
-              ) : null}
-              {this.state.revealUpdateProfile ? (
-                <UpdateProfile
-                  user={this.props.user}
-                  profile={this.props.profile}
-                  loggedInStatus={this.props.loggedInStatus}
-                  handleSuccessfullAuth={this.props.handleSuccessfullAuth}
-                  handleShowUpdateProfile={this.handleShowUpdateProfile}
-                />
-              ) : null}
-              <button onClick={() => this.handleShowUpdateProfile()}>
-                {this.state.revealUpdateProfile ? "Don't Update" : "Update"}{" "}
-                Profile
-              </button>
-            </div>
-          ) : null}
-
-          <div id="cule_select_group">
-            <h2>Your 'cules:</h2>
-            <BrowserRouter>{this.showCules()}</BrowserRouter>
-
-            <button onClick={() => this.handleShowCreateCule()}>
-              Create a Cule
-            </button>
-            {this.state.revealCreateCule ? (
-              <CreateCule
-                user={this.props.user}
-                profile={this.props.profile}
-                loggedInStatus={this.props.loggedInStatus}
-                handleShowCreateCule={this.handleShowCreateCule}
-              />
-            ) : null}
-          </div>
-
-          <div id="the_cule"></div>
-
-          <div id="side_footer">
-            <button onClick={() => this.handleLogoutClick()}>Logout</button>
-            <h6>
-              Status: {this.props.loggedInStatus}, as {this.props.user.username}
-            </h6>
-          </div>
-        </div>
+                  <button onClick={() => this.handleShowCreateCule()}>
+                    Create a Cule
+                  </button>
+                  {this.state.revealCreateCule ? (
+                    <CreateCule
+                      user={this.props.user}
+                      profile={this.props.profile}
+                      loggedInStatus={this.props.loggedInStatus}
+                      handleShowCreateCule={this.handleShowCreateCule}
+                    />
+                  ) : null}
+                </div>
+              </div>
+              <div className="push-lower">
+                <p onClick={() => this.handleLogoutClick()}>
+                  <a href="#">Logout</a>
+                </p>
+                <p className="status">
+                  Status: {this.props.loggedInStatus} {""}
+                  {this.props.user.username ? this.props.user.username : ""}
+                </p>
+              </div>
+            </Grid.Column>
+            <Grid.Column width={12} className="need-margin">
+              <div>
+                {this.state.showSelfCule && !this.state.showOtherCule ? (
+                  <div id="profile_group" className="">
+                    {!this.state.revealUpdateProfile ? (
+                      <Profile
+                        user={this.props.user}
+                        profile={this.props.profile}
+                        loggedInStatus={this.props.loggedInStatus}
+                        handleShowUpdateProfile={this.handleShowUpdateProfile}
+                      />
+                    ) : null}
+                    {this.state.revealUpdateProfile ? (
+                      <UpdateProfile
+                        user={this.props.user}
+                        profile={this.props.profile}
+                        loggedInStatus={this.props.loggedInStatus}
+                        handleSuccessfullAuth={this.props.handleSuccessfullAuth}
+                        handleShowUpdateProfile={this.handleShowUpdateProfile}
+                      />
+                    ) : null}
+                    <button
+                      className="push-lower"
+                      onClick={() => this.handleShowUpdateProfile()}
+                    >
+                      {this.state.revealUpdateProfile
+                        ? "Don't Update"
+                        : "Update"}
+                      Profile
+                    </button>
+                  </div>
+                ) : null}
+              </div>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     );
   }

@@ -9,8 +9,13 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      showLogin: true,
+    };
+
     this.handleSuccessfullAuth = this.handleSuccessfullAuth.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    this.handleShowRegistation = this.handleShowRegistation.bind(this);
   }
 
   handleSuccessfullAuth(data) {
@@ -31,20 +36,39 @@ export default class Home extends Component {
     this.props.history.push("/");
   }
 
+  handleShowRegistation() {
+    this.setState({
+      showLogin: !this.state.showLogin,
+    });
+  }
+
   render() {
     return (
       <div>
-        <h1>Familicules</h1>
-        <div>Please Register or Login</div>
-        <br />
-        <br />
-        <Registration handleSuccessfullAuth={this.handleSuccessfullAuth} />
-        <Login handleSuccessfullAuth={this.handleSuccessfullAuth} />
-        <button onClick={() => this.handleLogoutClick()}>Logout</button>
-        <h6>
+        <h1 className="text-center">Familicules</h1>
+        {this.state.showLogin ? (
+          <Login handleSuccessfullAuth={this.handleSuccessfullAuth} />
+        ) : (
+          <Registration handleSuccessfullAuth={this.handleSuccessfullAuth} />
+        )}
+        <div className="clearfix">
+          <p
+            className="text-center"
+            onClick={() => this.handleShowRegistation()}
+          >
+            <a href="#">
+              {this.state.showLogin ? "Create an Account" : "Log in"}
+            </a>
+          </p>
+        </div>
+
+        <p className="text-center" onClick={() => this.handleLogoutClick()}>
+          <a href="#">Logout</a>
+        </p>
+        <p className="text-center status">
           Status: {this.props.loggedInStatus} {""}
           {this.props.user.username ? this.props.user.username : ""}
-        </h6>
+        </p>
       </div>
     );
   }

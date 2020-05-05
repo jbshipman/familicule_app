@@ -5,11 +5,16 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
-        <h2>Profile</h2>
-        <div>{this.props.profile.firstname}</div>
-        <div>{this.props.profile.lastname}</div>
-        <div>{this.props.profile.bio}</div>
-        <div>{this.props.profile.birthday}</div>
+        <h3>Profile</h3>
+        <div>
+          {this.props.profile.firstname} {this.props.profile.lastname}
+        </div>
+        <div>Birthday: {this.props.profile.birthday}</div>
+
+        <div className="big-margin">
+          <div>Bio:</div>
+          {this.props.profile.bio}
+        </div>
       </div>
     );
   }

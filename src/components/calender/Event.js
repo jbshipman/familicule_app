@@ -42,11 +42,9 @@ export default class Event extends Component {
   render() {
     return (
       <div>
+        <h4>What's happening in our Cule:</h4>
         <div>
-          <h4>What's happening in our Cule:</h4>
-          <div>
-            <div className="event_cards">{this.showEventCards()}</div>
-          </div>
+          <div className="event_cards">{this.showEventCards()}</div>
         </div>
       </div>
     );
