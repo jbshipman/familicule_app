@@ -43,13 +43,13 @@ export default class Cule extends Component {
         </div>
 
         <div>
-          <Event
-            user={this.props.user}
-            profile={this.props.profile}
-            cule={this.props.cule}
-            events={this.props.events}
-            handleShowCreateEvent={this.handleShowCreateEvent}
-          />
+          {/* <Event
+              user={this.props.user}
+              profile={this.props.profile}
+              cule={this.props.cule}
+              events={this.props.events}
+              handleShowCreateEvent={this.handleShowCreateEvent}
+            /> */}
 
           {this.state.revealCrateEvent ? (
             <CreateEvent
@@ -58,7 +58,15 @@ export default class Cule extends Component {
               cule={this.props.cule}
               events={this.state.events}
             />
-          ) : null}
+          ) : (
+            <Event
+              user={this.props.user}
+              profile={this.props.profile}
+              cule={this.props.cule}
+              events={this.props.events}
+              handleShowCreateEvent={this.handleShowCreateEvent}
+            />
+          )}
         </div>
         {/* <div>
           Other Members:

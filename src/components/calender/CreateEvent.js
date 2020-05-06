@@ -11,6 +11,8 @@ export default class CreateEvent extends Component {
       time: "",
       location: "",
       details: "",
+
+      autoRefresh: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -45,8 +47,9 @@ export default class CreateEvent extends Component {
       .then((resp) => {
         // console.log(this.state);
         if (resp.data.status === "created") {
-          console.log("event has been created", resp.data.event);
+          // console.log("event has been created", resp.data.event);
           this.props.handleShowCreateEvent();
+          the.setState({ autoRefresh: !this.state.autoRefresh });
         }
       })
       .catch((error) => {
