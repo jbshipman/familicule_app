@@ -60,6 +60,10 @@ export default class Cule extends Component {
             />
           ) : null}
         </div>
+        {/* <div>
+          Other Members:
+          <p>{this.props.cule.users}</p>
+        </div> */}
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
+import axios from "axios";
 
 export default class Event extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ export default class Event extends Component {
     };
 
     this.showEventCards = this.showEventCards.bind(this);
+    // this.handleDeleteEvent = this.handleDeleteEvent.bind(this);
     // this.timeWarp = this.timeWarp.bind(this);
   }
 
@@ -20,6 +22,25 @@ export default class Event extends Component {
       ),
     });
     this.showEventCards();
+  }
+
+  handleDeleteEvent(e) {
+    const eID = e;
+    axios
+      .delete("http://localhost:3001/events/" + eID, {
+        withCredentials: true,
+      })
+      .then((resp) => {
+        axios
+          .get("http://localhost:3001/logged_in", { withCredentials: true })
+          .then((resp) => {
+            this.setState({
+              curentEvents: resp.data.events.filter(
+                (ev) => ev.cule_id == this.props.cule.id
+              ),
+            });
+          });
+      });
   }
 
   // timeWarp(data) {
@@ -72,6 +93,13 @@ export default class Event extends Component {
             </div>
           </div>
         </div>
+        <button
+          onClick={() => this.handleDeleteEvent(evt.id)}
+          className="btn-primary"
+          value={evt.id}
+        >
+          delete event
+        </button>
       </div>
     ));
   }
