@@ -56,13 +56,14 @@ export default class ProfileUpdate extends Component {
 
   render() {
     return (
-      <div>
+      <div className="ui card card-style">
         <form onSubmit={this.handleSubmit}>
           <div>
-            <div>
-              <p>
+            <div className="group-in-form">
+              <div>
                 <label>First name</label>
-              </p>
+              </div>
+
               <input
                 type="text"
                 name="firstname"
@@ -71,10 +72,10 @@ export default class ProfileUpdate extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div>
-              <p>
+            <div className="group-in-form">
+              <div>
                 <label>Last name</label>
-              </p>
+              </div>
               <input
                 type="text"
                 name="lastname"
@@ -83,10 +84,10 @@ export default class ProfileUpdate extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div>
-              <p>
+            <div className="group-in-form">
+              <div>
                 <label>Birthday</label>
-              </p>
+              </div>
               <input
                 type="date"
                 name="birthday"
@@ -95,10 +96,10 @@ export default class ProfileUpdate extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div>
-              <p>
+            <div className="group-in-form">
+              <div>
                 <label>Bio</label>
-              </p>
+              </div>
               <textarea
                 type="textarea"
                 name="bio"
@@ -108,7 +109,9 @@ export default class ProfileUpdate extends Component {
               ></textarea>
             </div>
           </div>
-          <button type="submit">Save Profile</button>
+          <button className="btn-primary" type="submit">
+            Save Profile
+          </button>
         </form>
       </div>
     );

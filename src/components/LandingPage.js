@@ -45,7 +45,7 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-center">Familicules</h1>
+        <h1 className="text-center app-header">Familicules</h1>
         {this.state.showLogin ? (
           <Login handleSuccessfullAuth={this.handleSuccessfullAuth} />
         ) : (

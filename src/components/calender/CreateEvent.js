@@ -61,57 +61,65 @@ export default class CreateEvent extends Component {
       <div>
         <div>
           <form onSubmit={this.handleSubmit}>
-            <p>
-              <label>Title</label>
-            </p>
-            <input
-              type="text"
-              name="title"
-              placeholder="event title"
-              value={this.state.title}
-              onChange={this.handleChange}
-            />
-            <p>
-              <label>Date</label>
-            </p>
-            <input
-              type="date"
-              name="date"
-              placeholder="date"
-              value={this.state.date}
-              onChange={this.handleChange}
-            />
-            <p>
-              <label>Time</label>
-            </p>
-            <input
-              type="time"
-              name="time"
-              placeholder="event time"
-              value={this.state.time}
-              onChange={this.handleChange}
-            />
-            <p>
-              <label>Location</label>
-            </p>
-            <input
-              type="text"
-              name="location"
-              placeholder="event location"
-              value={this.state.location}
-              onChange={this.handleChange}
-            />
-            <p>
-              <label>Details</label>
-            </p>
-            <textarea
-              type="text"
-              name="details"
-              placeholder="event details"
-              value={this.state.details}
-              onChange={this.handleChange}
-            />
-            <button type="submit">Save Event</button>
+            <div className="ui card card-style">
+              <p>
+                <label>Title</label>
+              </p>
+              <input
+                type="text"
+                name="title"
+                placeholder="event title"
+                value={this.state.title}
+                onChange={this.handleChange}
+              />
+              <p>
+                <label>Date</label>
+              </p>
+              <input
+                type="date"
+                name="date"
+                placeholder="date"
+                value={this.state.date}
+                onChange={this.handleChange}
+              />
+              <p>
+                <label>Time</label>
+              </p>
+              <input
+                type="time"
+                name="time"
+                placeholder="event time"
+                value={this.state.time}
+                onChange={this.handleChange}
+              />
+              <p>
+                <label>Location</label>
+              </p>
+              <input
+                type="text"
+                name="location"
+                placeholder="event location"
+                value={this.state.location}
+                onChange={this.handleChange}
+              />
+              <p>
+                <label>Details</label>
+              </p>
+              <textarea
+                type="text"
+                name="details"
+                placeholder="event details"
+                value={this.state.details}
+                onChange={this.handleChange}
+              />
+              <div>
+                <br />
+                <button className="btn-primary" type="submit">
+                  Save Event
+                </button>
+                <br />
+              </div>
+            </div>
           </form>
         </div>
       </div>

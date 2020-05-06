@@ -8,6 +8,7 @@ import Cule from "./Cule";
 import SelfCule from "./SelfCule";
 import { Link, Switch, Route, BrowserRouter } from "react-router-dom";
 import { Grid } from "semantic-ui-react";
+// import semantic from "semantic-ui-react";
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -113,12 +114,17 @@ export default class Dashboard extends Component {
               </div>
               <div className="">
                 <div id="cule_select_group">
-                  <h6>Your 'cules:</h6>
-                  <BrowserRouter>{this.showCules()}</BrowserRouter>
-
-                  <button onClick={() => this.handleShowCreateCule()}>
+                  <button
+                    className="btn-primary"
+                    onClick={() => this.handleShowCreateCule()}
+                  >
                     Create a Cule
                   </button>
+
+                  <h6>Your 'cules:</h6>
+
+                  <BrowserRouter>{this.showCules()}</BrowserRouter>
+
                   {this.state.revealCreateCule ? (
                     <CreateCule
                       user={this.props.user}
@@ -145,6 +151,17 @@ export default class Dashboard extends Component {
                 !this.state.showOtherCule &&
                 this.state.displayProfile ? (
                   <div id="profile_group" className="">
+                    <h3 className="profile-margin">Profile</h3>
+                    <button
+                      className="btn-primary"
+                      onClick={() => this.handleShowUpdateProfile()}
+                    >
+                      {this.state.revealUpdateProfile
+                        ? "Don't Update"
+                        : "Update"}
+                      Profile
+                    </button>
+
                     {!this.state.revealUpdateProfile ? (
                       <Profile
                         user={this.props.user}
@@ -162,15 +179,6 @@ export default class Dashboard extends Component {
                         handleShowUpdateProfile={this.handleShowUpdateProfile}
                       />
                     ) : null}
-                    <button
-                      className="push-lower"
-                      onClick={() => this.handleShowUpdateProfile()}
-                    >
-                      {this.state.revealUpdateProfile
-                        ? "Don't Update"
-                        : "Update"}
-                      Profile
-                    </button>
                   </div>
                 ) : null}
               </div>

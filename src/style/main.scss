@@ -1,15 +1,12 @@
 html {
-  // font-size: 62.5%; // 1rem is 10px
+  font-size: 62.5%; // 1rem is 10px
   font-size: 1rem;
 }
 
 *,
 *::after,
 *::before {
-  // margin: 0;
-  // padding: 0;
   box-sizing: inherit;
-  // font-family: 'montserrat';
 }
 
 body {
@@ -21,14 +18,16 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
 
-  background-color: beige;
+  // use a background image
+  background-image: url("../../public/img/Blurred-Background-Sunset-3c-Free.jpg");
+  background-size: cover;
 }
 
 .app {
-  margin-top: 2rem;
+  margin-top: 4rem;
   // display: grid;
   justify-items: left;
-  padding-left: 2rem;
+  // padding-left: 2rem;
 }
 
 // login modal
@@ -38,8 +37,9 @@ body {
 }
 .login-form form {
   margin-bottom: 15px;
-  background: #f7f7f7;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.3);
   padding: 30px;
 }
 .login-form h2 {
@@ -51,10 +51,32 @@ body {
   border-radius: 2px;
   width: 90%;
 }
+
+.form-control {
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .btn {
   font-size: 15px;
   font-weight: bold;
   width: 90%;
+  border-color: rgba(96, 130, 158, 0.3);
+  background-color: rgba(96, 130, 158, 1);
+}
+
+.btn-primary {
+  border-radius: 2px;
+  // border-color: rgba(96, 130, 158, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+
+  // background-color: rgba(96, 130, 158, 1);
+  // background-color: rgba(153, 151, 109, 1);
+  background-color: rgba(159, 128, 128, 0.6);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: rgba(96, 130, 158, 1);
 }
 
 .status {
@@ -71,16 +93,19 @@ body {
 }
 
 .push-lower {
-  margin-top: 10rem;
+  margin-top: 4rem;
 }
 
 .container-style {
-  border-style: solid;
-  border-width: thin;
+  // border-style: solid;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 2px;
   margin-right: 4rem;
   margin-left: 4rem;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  margin-bottom: 4rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.3);
 }
 
 .small-push {
@@ -89,5 +114,37 @@ body {
 
 .cule-margin {
   margin-left: 12rem;
-  margin-top: -7.25rem;
+  margin-top: -9.1rem;
+}
+
+.card-style {
+  padding: 0.5rem;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-header-style {
+  // border-bottom: thin;
+  // border-bottom: solid;
+  border-bottom-style: groove;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.profile-margin {
+  margin-bottom: 2rem;
+}
+
+.app-header {
+  // font-style: oblique;
+  // font-weight: 900;
+  // font-variant: small-caps;
+  // color: ;
+}
+
+.group-in-form {
+  margin-bottom: 2rem;
+}
+
+.input-label {
 }

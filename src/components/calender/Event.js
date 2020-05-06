@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 
 export default class Event extends Component {
   constructor(props) {
@@ -37,26 +38,35 @@ export default class Event extends Component {
       // let myRegex = /^(?:\S{11})(\S{8})/gm;
       // let timeMatch = myRegex.exec(dt);
 
-      <div className="ui card">
+      <div className="ui card card-style">
         <div className="content">
-          <h4 className="header">{evt.title}</h4>
+          <h4 className="header card-header-style">{evt.title}</h4>
         </div>
         <div className="content">
           <div className="ui sub header">
-            {evt.date} at {evt.time}
+            {/* <Moment format="MMM DD, YYYY">{evt.date}</Moment> */}
+            <p>
+              <b>When:</b> {evt.date} <b>at:</b> {evt.time}
+            </p>
+            {/* <Moment format="mm/dd/yyyy">{evt.date}</Moment> at{" "}
+            <Moment format="hh:mm">{evt.time}</Moment> */}
           </div>
           <div className="ui small feed">
             <div className="event">
               <div className="content">
                 <div className="summary">
-                  <p>Location: {evt.location}</p>
+                  <p>
+                    <b>Location:</b> {evt.location}
+                  </p>
                 </div>
               </div>
             </div>
             <div className="event">
               <div className="content">
                 <div className="sumamry">
-                  <p>Details: {evt.details}</p>
+                  <p>
+                    <b>Details:</b> {evt.details}
+                  </p>
                 </div>
               </div>
             </div>
@@ -75,6 +85,7 @@ export default class Event extends Component {
         <div>
           <div className="event_cards">{this.showEventCards()}</div>
         </div>
+        <br />
       </div>
     );
   }

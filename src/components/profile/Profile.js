@@ -6,7 +6,7 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
-        <h3>Profile</h3>
+        {/* <h3>Profile</h3> */}
         <div>
           {this.props.profile.firstname} {this.props.profile.lastname}
         </div>

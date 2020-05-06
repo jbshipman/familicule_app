@@ -31,6 +31,16 @@ export default class Cule extends Component {
     return (
       <div className="cule-margin">
         <h3>{this.props.cule.name}</h3>
+        <div>
+          <br />
+          <button
+            className="btn-primary"
+            onClick={() => this.handleShowCreateEvent()}
+          >
+            {this.state.revealCrateEvent ? "Don't Create" : "Create"} Event
+          </button>
+          <br />
+        </div>
 
         <div>
           <Event
@@ -50,10 +60,6 @@ export default class Cule extends Component {
             />
           ) : null}
         </div>
-
-        <button onClick={() => this.handleShowCreateEvent()}>
-          {this.state.revealCrateEvent ? "Don't Create" : "Create"} Event
-        </button>
       </div>
     );
   }
